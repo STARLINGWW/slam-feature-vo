@@ -1,0 +1,40 @@
+# Configuration for a generic webcam / USB camera.
+# Calibrate your camera with opencv-python camera_calibration scripts
+# and fill in the actual values below.
+
+camera:
+  model: pinhole
+  width:  640
+  height: 480
+  # ── Replace with your calibrated values ────────────────────────────────────
+  # Focal length: roughly (sensor_width_mm / pixel_size_mm)
+  # For a 60° horizontal FoV at 640px: fx ≈ 640 / (2 * tan(30°)) ≈ 554
+  fx: 554.0
+  fy: 554.0
+  cx: 320.0
+  cy: 240.0
+  distortion:
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+
+fast:
+  threshold:     15       # lower → more detections (webcam is noisier than EuRoC)
+  nms_radius:     4
+  max_keypoints: 400
+
+klt:
+  num_levels:    3
+  win_size:      21
+  max_iterations: 30
+  epsilon:        0.01
+
+vo:
+  min_tracked_points:        30
+  keyframe_min_tracked_ratio: 0.65
+  keyframe_min_distance:      0.03    # smaller → more KFs for slow motion
+  init_min_parallax:          1.5     # degrees; lower → initialises faster
+
+eval:
+  align: "sim3"
