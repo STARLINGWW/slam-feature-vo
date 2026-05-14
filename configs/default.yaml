@@ -1,0 +1,56 @@
+dataset:
+  type: euroc
+  base_path: "/path/to/euroc"
+  sequences:
+    - MH_01_easy
+  camera: cam0
+
+camera:
+  model: pinhole
+  width: 752
+  height: 480
+  fx: 458.654
+  fy: 457.296
+  cx: 367.215
+  cy: 248.375
+  distortion:
+    model: radtan
+    k1: -0.28340811
+    k2: 0.07395907
+    p1: 0.00019359
+    p2: 1.76187114e-05
+
+fast:
+  threshold: 20
+  nms_radius: 4
+  max_keypoints: 500
+  grid_size: 8
+
+klt:
+  num_levels: 4
+  win_size: 21
+  max_iterations: 30
+  epsilon: 0.01
+  min_eig_threshold: 1.0e-4
+
+orb:
+  patch_size: 31
+  n_pairs: 256
+  scale_factor: 1.2
+  n_levels: 8
+
+matcher:
+  ratio_threshold: 0.75
+  cross_check: true
+
+vo:
+  min_tracked_points: 50
+  keyframe_min_distance: 0.1
+  keyframe_min_angle: 5.0
+  keyframe_min_tracked_ratio: 0.7
+  init_min_parallax: 2.0
+  triangulate_min_parallax: 1.0
+
+eval:
+  align: "sim3"
+  output_tum: true
