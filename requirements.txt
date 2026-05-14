@@ -1,0 +1,27 @@
+# Core
+numpy>=1.24.0
+opencv-python>=4.8.0
+scipy>=1.11.0
+
+# Deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# SLAM / geometry
+kornia>=0.7.0
+
+# Pose graph optimization
+# g2o-python  # install separately if needed: pip install g2o-python
+
+# Evaluation
+evo>=1.28.0
+
+# Visualization
+matplotlib>=3.7.0
+open3d>=0.17.0
+
+# Config
+pyyaml>=6.0
+
+# Utils
+tqdm>=4.65.0
